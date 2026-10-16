@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680">
+<defs>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#b9c7c2" stroke-width="1" opacity=".42"/></pattern>
+<pattern id="soil" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M0 22L22 0M-8 8L8 -8M14 30L30 14" stroke="#d1aa7d" stroke-width="1" opacity=".35"/></pattern>
+</defs>
+<rect width="960" height="680" fill="#f1f1e9"/>
+<rect width="960" height="680" fill="url(#grid)"/>
+<g font-family="Arial,sans-serif" fill="#173637"><text x="62" y="66" font-size="20" letter-spacing="3">GROUND PROFILE / 01</text><text x="62" y="101" font-size="12" letter-spacing="2" fill="#66807c">CONCEPTUAL GEOTECHNICAL SECTION</text></g>
+<path d="M0 338C200 311 285 338 470 318S750 312 960 290V680H0Z" fill="#dedbd0"/>
+<path d="M0 420Q230 391 470 415T960 388V680H0Z" fill="#c5d0c4"/>
+<path d="M0 506Q250 469 470 502T960 487V680H0Z" fill="#a7b8a6"/>
+<path d="M0 574Q200 553 470 574T960 558V680H0Z" fill="#829c91"/>
+<path d="M0 420Q230 391 470 415T960 388V506Q250 469 470 502T0 506Z" fill="url(#soil)"/>
+<path d="M55 335L920 293" stroke="#153a3b" stroke-width="4"/>
+<g fill="#e7ece6" stroke="#173637" stroke-width="5">
+<rect x="212" y="249" width="480" height="53" rx="2"/>
+<rect x="279" y="197" width="17" height="53"/><rect x="609" y="197" width="17" height="53"/>
+<rect x="262" y="184" width="381" height="15"/>
+</g>
+<g fill="#f3eee1" stroke="#173637" stroke-width="4"><rect x="262" y="299" width="24" height="318"/><rect x="384" y="298" width="24" height="333"/><rect x="506" y="295" width="24" height="340"/><rect x="628" y="295" width="24" height="305"/></g>
+<g stroke="#b96d4f" stroke-width="3" stroke-dasharray="5 9"><path d="M274 299V622M396 298V636M518 295V635M640 295V599"/></g>
+<g stroke="#173637" stroke-width="1.5" fill="none"><path d="M170 295V585M160 295H180M160 585H180"/><path d="M730 311V490M720 311H740M720 490H740"/></g>
+<g font-family="Arial,sans-serif" fill="#153a3b" font-size="14"><text x="96" y="460">STRATUM A</text><text x="96" y="537">STRATUM B</text><text x="96" y="620">STRATUM C</text><text x="746" y="378">PILE</text><text x="746" y="396">GROUP</text><text x="745" y="420" font-size="11" fill="#a35e44">DEEP FOUNDATION</text></g>
+<g fill="none" stroke="#b96d4f" stroke-width="2"><path d="M741 391H662"/><path d="M638 156L638 181"/></g>
+<g font-family="Arial,sans-serif" font-size="12" letter-spacing="2" fill="#ac6c50"><text x="630" y="143">STRUCTURAL LOAD</text></g>
+<g fill="#b96d4f"><path d="M638 182l-7 -12h14z"/></g>
+</svg>
