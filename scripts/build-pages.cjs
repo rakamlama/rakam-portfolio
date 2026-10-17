@@ -1,8 +1,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const routes = ['home', 'services', 'expertise', 'projects', 'research', 'publications', 'about', 'tools', 'contact'];
-const labels = {home:'Home', services:'Services', expertise:'Expertise', projects:'Projects', research:'Research', publications:'Publications', about:'About', tools:'Tools', contact:'Contact'};
+const routes = ['home', 'services', 'expertise', 'research', 'publications', 'about', 'tools', 'contact'];
+const labels = {home:'Home', services:'Services', expertise:'Expertise', research:'Research', publications:'Publications', about:'About', tools:'Tools', contact:'Contact'};
 const template = fs.readFileSync(path.join(root, 'templates/page.html'), 'utf8');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'content/portfolio-data.json'), 'utf8'));
 fs.writeFileSync(path.join(root, 'public-data.js'), 'window.PORTFOLIO_DATA = ' + JSON.stringify(data) + ';\n');
@@ -11,10 +11,6 @@ const urlFor = route => route === 'home' ? '/' : `/${route}/`;
 for (const route of routes) {
   const meta = JSON.parse(fs.readFileSync(path.join(root, `content/${route}.json`), 'utf8'));
   let content = fs.readFileSync(path.join(root, `content/${route}.html`), 'utf8');
-  if (route === 'projects') {
-    const cards = data.projects.map(item => `<article class="card project"><div class="category">${escape(item.cat)}</div><h2>${escape(item.name)}</h2><p>${escape(item.text)}</p><div class="tags">${item.tags.map(tag => `<span class="tag">${escape(tag)}</span>`).join('')}</div></article>`).join('');
-    content = content.replace('<div class="grid" id="projects"></div>', `<div class="grid" id="projects">${cards}</div>`);
-  }
   if (route === 'publications') {
     const publications = [...data.publications].sort((a,b) => b.year - a.year || a.title.localeCompare(b.title));
     const cards = publications.map(pub => `<article class="card publication"><div class="publication-meta"><span class="topline">${pub.year} · ${escape(pub.venue)}</span><span class="status alt-status">${escape(pub.type)}</span></div><h2>${escape(pub.title)}</h2><p>${escape(pub.authors)}</p><a class="mini-link" href="${escape(pub.url)}" target="_blank" rel="noopener noreferrer">View publication ↗</a></article>`).join('');
@@ -27,7 +23,7 @@ for (const route of routes) {
   const navigation = routes.map(item => `<a href="${urlFor(item)}"${item === route ? ' aria-current="page"' : ''}>${labels[item]}</a>`).join('\n');
   // Keep the portrait and visual refinements exclusive to the homepage.
   let scripts = route === 'home' ? '<link rel="stylesheet" href="/home.css">' : '';
-  if (['projects','publications','tools'].includes(route)) scripts = '<script defer src="/public-data.js"></script><script defer src="/public.js"></script>';
+  if (['publications','tools'].includes(route)) scripts = '<script defer src="/public-data.js"></script><script defer src="/public.js"></script>';
   if (route === 'tools') scripts = '<script defer src="/app-config.js"></script><script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>' + scripts;
   const values = {title:escape(meta.title),description:escape(meta.description),canonical:'https://rakamtamang.com'+urlFor(route),route,navigation,scripts,intro,content,cta};
   const html = template.replace(/\{\{(\w+)\}\}/g, (_, key) => values[key]);

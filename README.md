@@ -74,7 +74,6 @@ To add or change publications and projects, edit `content/portfolio-data.json`, 
 | `/` | Landing page and curated previews |
 | `/services/` | Engineering focus areas and approach |
 | `/expertise/` | Detailed technical capabilities |
-| `/projects/` | Featured engagement and filterable project portfolio |
 | `/research/` | Research themes and applied workflows |
 | `/publications/` | Searchable publication library |
 | `/about/` | Background, education, licensure, and toolkit |

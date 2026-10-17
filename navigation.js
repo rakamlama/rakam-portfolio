@@ -24,7 +24,7 @@ document.addEventListener('keydown', event => {
 const year = document.querySelector('#year');
 if (year) year.textContent = new Date().getFullYear();
 // Preserve existing shared links from the former single-page portfolio.
-const legacyRoutes = {expertise:'expertise',work:'projects',research:'research',publications:'publications',about:'about',tools:'tools',contact:'contact'};
+const legacyRoutes = {expertise:'expertise',work:'services',research:'research',publications:'publications',about:'about',tools:'tools',contact:'contact'};
 if (location.pathname === '/' || location.pathname === '/index.html') {
   const route = legacyRoutes[location.hash.slice(1)];
   if (route) location.replace('/' + route + '/');

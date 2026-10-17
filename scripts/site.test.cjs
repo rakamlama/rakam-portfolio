@@ -5,7 +5,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const server = require('./dev-server.cjs');
 const root = path.resolve(__dirname, '..');
-const routes = ['', 'services', 'expertise', 'projects', 'research', 'publications', 'about', 'tools', 'contact'];
+const routes = ['', 'services', 'expertise', 'research', 'publications', 'about', 'tools', 'contact'];
 let origin;
 before(async () => {
   await new Promise((resolve, reject) => {server.once('error', reject); server.listen(0, '127.0.0.1', resolve);});
@@ -62,11 +62,11 @@ test('dashboard is isolated and preserves its controls and legacy entry point', 
   assert.match(fs.readFileSync(path.join(root,'admin.html'),'utf8'), /location.search\+location.hash/);
 });
 
-test('project and publication content is readable without JavaScript', () => {
+test('publications are readable without JavaScript and Projects is removed', () => {
   const data = JSON.parse(fs.readFileSync(path.join(root,'content/portfolio-data.json'),'utf8'));
-  const projects = fs.readFileSync(path.join(root,'projects/index.html'),'utf8');
+  assert.equal(fs.existsSync(path.join(root,'projects/index.html')), false);
   const pubs = fs.readFileSync(path.join(root,'publications/index.html'),'utf8');
-  assert.equal([...projects.matchAll(/class="card project"/g)].length, data.projects.length);
+  assert.ok(!fs.readFileSync(path.join(root,'sitemap.xml'),'utf8').includes('/projects/'));
   assert.equal([...pubs.matchAll(/class="card publication"/g)].length, data.publications.length);
 });
 
