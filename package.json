@@ -1,0 +1,14 @@
+{
+  "name": "rakam-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-pages.cjs",
+    "predev": "npm run build",
+    "dev": "node scripts/dev-server.cjs",
+    "test": "node --test scripts/site.test.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

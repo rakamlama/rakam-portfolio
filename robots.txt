@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard/
+Disallow: /admin.html
+Disallow: /content/
+Disallow: /scripts/
+Disallow: /templates/
+Sitemap: https://rakamtamang.com/sitemap.xml
