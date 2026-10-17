@@ -263,3 +263,6 @@
 @media (prefers-reduced-motion: no-preference) {
   .page-home .home-portrait { animation: enter-page .6s ease-out both; }
 }
+/* Let navigation reflow when a visitor enlarges text instead of clipping links. */
+.page-home .navin,
+.page-home .navlinks { flex-wrap: wrap; }
